@@ -91,6 +91,10 @@ $app->get('/admin/articles', 'Distvan\Controller\Admin:articles')
     ->setName('admin-articles')
     ->add(new AdminMiddleware($container->get('session')));
 
+$app->get('/admin/profile', 'Distvan\Controller\Admin:profile')
+    ->setName('admin-profile')
+    ->add(new AdminMiddleware($container->get('session')));
+
 $app->get('/admin/logout', 'Distvan\Controller\Admin:logout')
     ->setName('logout')
     ->add(new AdminMiddleware($container->get('session')));

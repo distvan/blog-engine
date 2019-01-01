@@ -4,4 +4,5 @@ log
 debugbar
 node_modules
 storage/settings.blog
+storage/descriptor/*.xml
 cache/*.cache

@@ -1,0 +1,46 @@
+<div class="col-md-10">
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-md-12 panel-warning">
+            <div class="content-box-header panel-heading">
+                <div class="panel-title "><?php echo $lang->get('categories');?></div>
+            </div>
+            <div class="content-box-large box-with-header">
+
+                <div class="content-box-large">
+                    <div class="panel-heading">
+                        <div class="panel-title"><a href="" class="btn btn-info" role="button"><?php echo $lang->get('add_new_category');?></a></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><?php echo $lang->get('category_name');?></th>
+                                    <th><?php echo $lang->get('category_url');?></th>
+                                    <th><?php echo $lang->get('action');?></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($categories as $category) :?>
+                                    <tr>
+                                        <td><?php echo $category['id'];?></td>
+                                        <td><?php echo $category['name'];?></td>
+                                        <td><?php echo $category['url'];?></td>
+                                        <td>
+                                            <a href="" class="btn btn-default" role="button"><?php echo $lang->get('update');?></a>
+                                            <a href="" class="btn btn-danger" role="button"><?php echo $lang->get('delete');?></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

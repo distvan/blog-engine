@@ -2,7 +2,9 @@
 namespace Distvan\Controller;
 
 use Distvan\Language;
+use Distvan\Model\Category;
 use Distvan\Settings;
+use Distvan\Config;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -109,9 +111,17 @@ class Admin extends Action
         return $response = $response->withRedirect($uri, 301);
     }
 
-    public function settings(Request $request, Response $response, $args)
+    /**
+     * Settings handling
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     */
+    public function profile(Request $request, Response $response, $args)
     {
-        //Todo: implement admin settings
+        $this->_ci->view->render($response, 'admin/main.html', array(), 'html');
+        $this->_ci->view->render($response, 'admin/dashboard.html', array('content' => 'settings'), 'html');
     }
 
     /**
@@ -124,22 +134,60 @@ class Admin extends Action
     public function dashboard(Request $request, Response $response, $args)
     {
         $this->_ci->view->render($response, 'admin/main.html', array(), 'html');
-        $this->_ci->view->render($response, 'admin/dashboard.html',
-            array('content' => ''), 'html');
+        $this->_ci->view->render($response, 'admin/dashboard.html', array('content' => ''), 'html');
     }
 
+    /**
+     * Categories handling
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     */
     public function categories(Request $request, Response $response, $args)
     {
-        //Todo: implement admin categories
+        $categories = array();
+        $config = new Config();
+        $c = $config->get();
+        $category = new Category($config);
+
+        foreach($category->getAll() as $cat)
+        {
+            $categories[] = array(
+                'id' => $cat->getId(),
+                'name' => $cat->getName(),
+                'url' => $cat->getUrl()
+            );
+        }
+
+        $this->_ci->view->render($response, 'admin/main.html', array(), 'html');
+        $this->_ci->view->render($response, 'admin/dashboard.html',
+            array('content' => 'categories', 'categories' => $categories),'html');
     }
 
+    /**
+     * Tags handling
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     */
     public function tags(Request $request, Response $response, $args)
     {
-        //Todo: implement admin tags
+        $this->_ci->view->render($response, 'admin/main.html', array(), 'html');
+        $this->_ci->view->render($response, 'admin/dashboard.html', array('content' => 'tags'),'html');
     }
 
+    /**
+     * Articles handling
+     *
+     * @param Request $request
+     * @param Response $response
+     * @param $args
+     */
     public function articles(Request $request, Response $response, $args)
     {
-        //Todo: implement admin articles
+        $this->_ci->view->render($response, 'admin/main.html', array(), 'html');
+        $this->_ci->view->render($response, 'admin/dashboard.html', array('content' => 'articles'),'html');
     }
 }

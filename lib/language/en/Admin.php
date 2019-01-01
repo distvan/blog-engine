@@ -21,6 +21,12 @@ class Admin extends Base
         'categories' => 'Categories',
         'tags' => 'Tags',
         'articles' => 'Articles',
-        'created_by' => 'Created by'
+        'created_by' => 'Created by',
+        'add_new_category' => 'Add New Category',
+        'category_name' => 'Category Name',
+        'category_url' => 'Category Url',
+        'action' => 'Action',
+        'update' => 'Update',
+        'delete' => 'Delete',
     );
 }

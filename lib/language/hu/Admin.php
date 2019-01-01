@@ -21,6 +21,12 @@ class Admin extends Base
         'categories' => 'Kategóriák',
         'tags' => 'Címkék',
         'articles' => 'Cikkek',
-        'created_by' => 'Készítette'
+        'created_by' => 'Készítette',
+        'add_new_category' => 'Új kategória',
+        'category_name' => 'Kategória neve',
+        'category_url' => 'Kategória Url',
+        'action' => 'Művelet',
+        'update' => 'Módosít',
+        'delete' => 'Töröl',
     );
 }

@@ -24,7 +24,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang->get('my_account');?><b class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
-                                    <li><a href="/admin/settings"><?php echo $lang->get('profile');?></a></li>
+                                    <li><a href="/admin/profile"><?php echo $lang->get('profile');?></a></li>
                                     <li><a href="/admin/logout"><?php echo $lang->get('logout');?></a></li>
                                 </ul>
                             </li>
@@ -42,10 +42,10 @@
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="/admin/dashboard"><i class="glyphicon glyphicon-home"></i> <?php echo $lang->get('dashboard');?></a></li>
-                    <li><a href="/admin/categories"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('categories');?></a></li>
-                    <li><a href="/admin/tags"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('tags');?></a></li>
-                    <li><a href="/admin/articles"><i class="glyphicon glyphicon-pencil"></i> <?php echo $lang->get('articles');?></a></li>
+                    <li <?php echo empty($content) ? 'class="current"' : ''?>><a href="/admin/dashboard"><i class="glyphicon glyphicon-home"></i> <?php echo $lang->get('dashboard');?></a></li>
+                    <li <?php echo $content == 'categories' ? 'class="current"' : ''?>><a href="/admin/categories"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('categories');?></a></li>
+                    <li <?php echo $content == 'tags' ? 'class="current"' : ''?>><a href="/admin/tags"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('tags');?></a></li>
+                    <li <?php echo $content == 'articles' ? 'class="current"' : ''?>><a href="/admin/articles"><i class="glyphicon glyphicon-pencil"></i> <?php echo $lang->get('articles');?></a></li>
                     <!--
                     <li class="submenu">
                         <a href="#">
@@ -64,9 +64,10 @@
         <?php
               switch($content)
               {
-                case 'category' : include 'content/category.html';break;
+                case 'categories' : include 'content/categories.html';break;
                 case 'tags' : include 'content/tags.html';break;
                 case 'articles' : include 'content/articles.html';break;
+                case 'settings' : include 'content/settings.html';break;
                 default: include 'content/dashboard.html';
               }
          ?>
