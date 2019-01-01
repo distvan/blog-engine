@@ -1,0 +1,26 @@
+<?php
+use Distvan\Language;
+$lang = Language::load('Widgets');
+?>
+<div class="sidebar-widget">
+    <div class="categories-widget">
+        <div class="widget-header">
+            <h4>
+                <i class="ion-ios-folder"></i> <?php echo $lang->get('categories');?>
+            </h4>
+        </div>
+
+        <?php if($categories) : ?>
+
+        <ul class="sidebar-list">
+            <?php foreach($categories as $category) :?>
+            <li>
+                <a href="<?php echo $category['url'];?>"><?php echo $category['name'];?></a>
+            </li>
+            <?php endforeach;?>
+        </ul>
+
+        <?php endif;?>
+
+    </div>
+</div>

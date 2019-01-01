@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="/img/house-152-237998.png">
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/img/house-144-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/img/house-152-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/house-144-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/house-120-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/house-114-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/house-72-237998.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/house-57-237998.png">
+    <link rel="icon" href="/img/house-32-237998.png" sizes="32x32">
+
+    <?php if(isset($title)) :?>
+        <title><?php echo $title;?></title>
+    <?php else: ?>
+        <title>Blog</title>
+    <?php endif;?>
+
+    <?php if(isset($meta_description)) :?>
+        <meta name="description" content="<?php echo $meta_description;?>">
+    <?php endif; ?>
+
+    <?php if(isset($robots)) :?>
+        <meta name="robots" content="<?php echo $robots;?>">
+    <?php endif; ?>
+
+    <?php if(isset($title)) :?>
+        <meta property="og:title" content="<?php echo $title;?>">
+    <?php endif; ?>
+
+    <?php if(isset($meta_description)) :?>
+        <meta property="og:description" content="<?php echo $meta_description;?>">
+    <?php endif; ?>
+
+    <?php if(isset($og_type)) :?>
+        <meta property="og:type" content="<?php echo $og_type;?>">
+    <?php endif; ?>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/dist/css/bundle.min.css">
+</head>
+<body class="<?php echo !$article ? 'section-show' : '';?>">
+    <div id="preloader"><div class="loader" ><img src="/img/load.gif" alt="symp" ></div></div>

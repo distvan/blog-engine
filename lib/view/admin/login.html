@@ -1,0 +1,25 @@
+<?php
+    use Distvan\Language;
+    $lang = Language::load('AdminLogin');
+?>
+
+<div class="container">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1><?php echo $lang->get('login_title');?></h1><br>
+            <?php if(isset($error)) :?>
+                <div class="error"><?php echo $error;?></div>
+            <?php endif;?>
+            <form action="/admin/login" method="post">
+                <input type="text" autocomplete="username" name="user" placeholder="<?php echo $lang->get('username');?>">
+                <input type="password" autocomplete="current-password" name="pass" placeholder="<?php echo $lang->get('password');?>">
+                <input type="submit" name="login" class="login loginmodal-submit" value="<?php echo $lang->get('login');?>">
+                <input type="hidden" name="<?php echo $nameKey;?>" value="<?php echo $name;?>">
+                <input type="hidden" name="<?php echo $valueKey;?>" value="<?php echo $value;?>">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/admin_/dist/js/admin-bundle.min.js"></script>
+</body>

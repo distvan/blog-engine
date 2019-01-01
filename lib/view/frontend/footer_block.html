@@ -1,0 +1,46 @@
+<div class="footer bg-lightgray section-block" >
+    <div class="container" >
+        <div class="row" >
+            <div class="col-md-6 text-left" >
+                <?php if (isset($author)) :?>
+                    <h4><?php echo $author;?></h4>
+                <?php endif;?>
+            </div>
+            <div class="col-md-6 text-right" >
+                <ul class="footer-social" >
+                    <?php if($social['facebook']) :?>
+                        <li>
+                            <a target="_blank" href="<?php echo $social['facebook'];?>" >
+                                <i class="ion-social-facebook" ></i>
+                            </a>
+                        </li>
+                    <?php endif;?>
+
+                    <?php if($social['twitter']) :?>
+                        <li>
+                            <a target="_blank" href="<?php echo $social['twitter'];?>" >
+                                <i class="ion-social-twitter" ></i>
+                            </a>
+                        </li>
+                    <?php endif;?>
+
+                    <?php if($social['pinterest']) :?>
+                        <li>
+                            <a target="_blank" href="<?php echo $social['pinterest'];?>" >
+                                <i class="ion-social-pinterest" ></i>
+                            </a>
+                        </li>
+                    <?php endif;?>
+
+                    <?php if($social['dribble']) :?>
+                        <li>
+                            <a target="_blank" href="<?php echo $social['dribble'];?>" >
+                                <i class="ion-social-dribbble" ></i>
+                            </a>
+                        </li>
+                    <?php endif;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,387 @@
+<?php
+    use Distvan\Language;
+    $lang = Language::load('Setup');
+?>
+<!DOCTYPE html>
+<html class="no-js" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="img/house-152-237998.png">
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="img/house-144-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/house-152-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/house-144-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/house-120-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/house-114-237998.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/house-72-237998.png">
+    <link rel="apple-touch-icon-precomposed" href="img/house-57-237998.png">
+    <link rel="icon" href="img/house-32-237998.png" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="dist/css/bundle.min.css">
+    <link href="https://unpkg.com/ionicons@4.5.0/dist/css/ionicons.min.css" rel="stylesheet">
+    <title>Setup</title>
+    <style type="text/css">
+        /*Reset*/
+        html {
+            overflow: -moz-scrollbars-vertical;
+            margin: 0;
+            padding: 0;
+        }
+        *,h1,h2,h3,h4,h5,h6 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+        }
+        body {
+            margin: 0px;
+            padding: 0px;
+            line-height: 1.5;
+            background: #F6F6F6 url('img/background.png');
+        }
+        body, p, td, th, input, textarea, select, option {
+            color: #777777;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        fieldset {
+            border: 1px solid #DBDBDB;
+            padding: 10px;
+            margin-bottom: 20px;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            -moz-border-radius: 5px 5px 5px 5px;
+            -khtml-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+        fieldset table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        fieldset table.form tr td:first-child {
+            width: 250px;
+        }
+        fieldset table td {
+            padding: 5px;
+        }
+        select, input[type='text'], input[type='password'], textarea {
+            background: #FFFFFF;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            -moz-border-radius: 5px 5px 5px 5px;
+            -khtml-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+            border: 1px solid #DBDBDB;
+            padding: 4px;
+            color: #000;
+        }
+        option {
+            color: #000;
+        }
+        a, a:visited, a b {
+            color: #23A1D1;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        b, strong {
+            color: #555;
+        }
+        label {
+            cursor: pointer;
+        }
+        div.required .control-label:before {
+            content: '* ';
+            color: #F00;
+            font-weight: bold;
+        }
+        .error{
+            background: lightsalmon !important;
+        }
+
+        /*Buttons*/
+        a.button, input.button {
+            cursor: pointer;
+            color: #FFF;
+            font-size: 13px;
+            border: 1px solid #78883C;
+            background: url('img/button.png') repeat-x;
+            text-shadow: 0px -1px #7A8A3D;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            -moz-border-radius: 5px 5px 5px 5px;
+            -khtml-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+            -webkit-box-shadow: 1px 2px 2px #DDDDDD;
+            -moz-box-shadow: 1px 2px 2px #DDDDDD;
+            box-shadow: 1px 2px 2px #DDDDDD;
+            margin-bottom: 2px;
+        }
+        .buttons {
+            border: 1px solid #DBDBDB;
+            overflow: auto;
+            padding: 6px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 10px 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            webkit-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+        .btn-default:visited,
+        .btn-default {
+            border: none;
+            color: #777;
+            background: #ddd;
+        }
+        .btn-default:hover {
+            background: #ccc;
+            color: #777;
+        }
+        .btn-primary:visited,
+        .btn-primary {
+            color: #fff;
+            background: #23a1d1;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #1f91bc;
+        }
+        .btn-secondary:visited,
+        .btn-secondary {
+            color: #fff;
+            background: transparent;
+            border: 2px solid #fff;
+        }
+        .btn-secondary:hover {
+            border: 2px solid #fff;
+            background: #fff;
+            color: #23a1d1;
+        }
+
+        /*Header*/
+        header {
+            padding: 50px;
+        }
+        header h1 {
+            margin: 0 25px 0 0;
+            font-size: 48px;
+        }
+        header h3 {
+            margin: 0;
+            float: left;
+        }
+        header h3 small {
+            margin: 10px 0 0 0;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-sm-12 text-center"><h1><?php echo $lang->get('blog_installation');?></h1></div>
+            </div>
+        </header>
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="post" action="<?php echo $install_url;?>">
+                    <p>1. <?php echo $lang->get('step1_instruction');?></p>
+                    <fieldset>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td><b><?php echo $lang->get('php_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('current_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('required_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('status');?></b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><?php echo $lang->get('php_version');?></td>
+                                    <td><?php echo phpversion();?></td>
+                                    <td>7.1+</td>
+                                    <td>
+                                        <?php if ($php_version_ok) :?>
+                                            <span class="text-success"><i class="ion-ios-checkmark-circle"></i></span>
+                                        <?php else:?>
+                                            <span class="text-danger"><i class="ion-ios-close-circle"></i></span>
+                                        <?php endif;?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Register Globals</td>
+                                    <td>
+                                        <?php if ($register_globals_status) :?>
+                                            <?php echo $lang->get('on');?>
+                                        <?php else:?>
+                                            <?php echo $lang->get('off');?>
+                                        <?php endif;?>
+                                    </td>
+                                    <td><?php echo $lang->get('off');?></td>
+                                    <td>
+                                        <?php if ($register_globals_status) :?>
+                                            <span class="text-danger"><i class="ion-ios-close-circle"></i></span>
+                                        <?php else:?>
+                                            <span class="text-success"><i class="ion-ios-checkmark-circle"></i></span>
+                                        <?php endif;?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <p>2. <?php echo $lang->get('step2_instruction');?></p>
+                    <fieldset>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td><b><?php echo $lang->get('extension_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('current_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('required_settings');?></b></td>
+                                    <td><b><?php echo $lang->get('status');?></b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PHP-XML</td>
+                                    <td>
+                                        <?php if ($xml_extension) :?>
+                                            <?php echo $lang->get('on');?>
+                                        <?php else:?>
+                                            <?php echo $lang->get('off');?>
+                                        <?php endif;?>
+                                    </td>
+                                    <td><?php echo $lang->get('on');?></td>
+                                    <td>
+                                        <?php if ($xml_extension) :?>
+                                            <span class="text-success"><i class="ion-ios-checkmark-circle"></i></span>
+                                        <?php else:?>
+                                            <span class="text-danger"><i class="ion-ios-close-circle"></i></span>
+                                        <?php endif;?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <p>3. <?php echo $lang->get('step3_instruction');?></p>
+                    <fieldset>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td><b><?php echo $lang->get('directory');?></b></td>
+                                    <td><b><?php echo $lang->get('status');?></b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><?php echo $storage_dir;?></td>
+                                    <td>
+                                        <?php if ($is_storage_writable) :?>
+                                            <span class="text-success"><?php echo $lang->get('writable');?></span>
+                                        <?php else: ?>
+                                            <span class="text-danger"><?php echo $lang->get('missing');?></span>
+                                        <?php endif;?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>Blog Admin url:</td>
+                                <td><?php echo $admin_url;?></td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $lang->get('blog_author');?>:</td>
+                                <td>
+                                    <?php if(isset($error['author'])) :?>
+                                        <input class="error" type="text" name="author" size="30" />
+                                        <div class="text-danger"><?php echo $error['author'];?></div>
+                                    <?php else: ?>
+                                        <input type="text" name="author" size="30" value="<?php echo $author;?>" />
+                                    <?php endif;?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $lang->get('blog_admin_name');?>:</td>
+                                <td>
+                                    <?php if(isset($error['admin'])) :?>
+                                        <input class="error" type="text" name="admin" size="30" />
+                                        <div class="text-danger"><?php echo $error['admin'];?></div>
+                                    <?php else: ?>
+                                        <input type="text" name="admin" size="30" value="<?php echo $admin;?>" />
+                                    <?php endif;?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $lang->get('blog_admin_password');?>:</td>
+                                <td>
+                                    <?php if(isset($error['password'])) :?>
+                                        <input class="error" type="password" name="password" size="30" />
+                                        <div class="text-danger"><?php echo $error['password'];?></div>
+                                    <?php else: ?>
+                                        <input type="password" name="password" size="30" />
+                                    <?php endif;?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?php echo $lang->get('blog_admin_password_again');?>:</td>
+                                <td>
+                                    <?php if(isset($error['password_again'])) :?>
+                                        <input class="error" type="password" name="password_again" size="30" />
+                                        <div class="text-danger"><?php echo $error['password_again'];?></div>
+                                    <?php else: ?>
+                                        <input type="password" name="password_again" size="30" />
+                                    <?php endif;?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Facebook:</td>
+                                <td><input type="text" name="facebook" size="30" value="<?php echo $facebook;?>" /></td>
+                            </tr>
+                            <tr>
+                                <td>Twitter:</td>
+                                <td><input type="text" name="twitter" size="30" value="<?php echo $twitter;?>" /></td>
+                            </tr>
+                            <tr>
+                                <td>Pinterest:</td>
+                                <td><input type="text" name="pinterest" size="30" value="<?php echo $pinterest;?>" /></td>
+                            </tr>
+                            <tr>
+                                <td>Dribble:</td>
+                                <td><input type="text" name="dribble" size="30" value="<?php echo $dribble;?>" /></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+
+                    <?php if($installable) :?>
+                        <div class="buttons">
+                            <div class="pull-left"></div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary"><?php echo $lang->get('install');?></button>
+                            </div>
+                        </div>
+                    <?php endif;?>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

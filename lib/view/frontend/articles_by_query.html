@@ -1,0 +1,85 @@
+<?php
+use Distvan\Controller\CategoryWidget;
+use Distvan\Controller\TagWidget;
+use Distvan\Controller\SearchWidget;
+use Distvan\Controller\RecentWidget;
+use Distvan\Controller\ArchiveWidget;
+use Distvan\Language;
+
+$lang = Language::load('Page');
+?>
+<div id="wrapper">
+    <section id="blog" class="blog-section section active">
+        <?php include 'header_block.html';?>
+        <div class="posts-block section-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <?php if(isset($data['error']) && !empty($data['error'])) : ?>
+                        <div style="color:red;text-align:center;"><?php echo $data['error'];?></div>
+                        <?php endif;?>
+
+                        <?php if(isset($data['text_result']) && !empty($data['text_result'])) : ?>
+                        <?php echo $data['text_result'];?>
+                        <?php endif;?>
+
+                        <?php foreach($articles as $article) :?>
+                            <div class="post">
+                                <div class="media">
+                                    <!-- <img alt="symp" src="img/bg2.jpg"> -->
+                                </div>
+                                <div class="content">
+                                    <h4>
+                                        <a href="<?php echo $article['url'];?>">
+                                            <?php echo $article['title'];?>
+                                        </a>
+                                    </h4>
+                                    <ul class="post-icons">
+                                        <li>
+                                            <i class="ion-ios-person"></i>
+                                            <?php if (isset($author)) :?>
+                                                <span><?php echo $author;?></span>
+                                            <?php endif;?>
+                                        </li>
+                                        <li>
+                                            <i class="ion-ios-clock"></i>
+                                            <span><?php echo $article['creating_date'];?></span>
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        Cu illud lorem putent vel. Eum in movet nostrum referrentur. His ne tantas tractatos. Sit eu saperet antiopam scripserit. Ei albucius consequuntur sea, no nominavi fabellas phaedrum his....
+                                    </p>
+                                    <a href="<?php echo $article['url'];?>" class="read-more">
+                                        <?php echo $lang->get('read_more');?>
+                                        <i class="ion-ios-arrow-thin-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endforeach;?>
+                        <?php if($articles) : ?>
+                            <div class="post-more">
+                                <a href="#" class="more-link"><?php echo $lang->get('load_more');?></a>
+                            </div>
+                        <?php endif;?>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="sidebar">
+                            <?php SearchWidget::create();?>
+
+                            <?php CategoryWidget::create();?>
+
+                            <?php TagWidget::create();?>
+
+                            <?php RecentWidget::create();?>
+
+                            <?php ArchiveWidget::create();?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php include 'footer_block.html';?>
+    </section>
+</div>
+<script src="/dist/js/bundle.min.js"></script>
+</body>

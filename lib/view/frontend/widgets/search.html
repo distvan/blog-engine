@@ -1,0 +1,13 @@
+<?php
+    use Distvan\Language;
+    $lang = Language::load('Widgets');
+?>
+
+<div class="sidebar-widget">
+        <form action="/search" method="post">
+            <div class="search-box">
+                <input type="text" name="keyword" placeholder="<?php echo $lang->get('search');?>" class="search-input">
+                <button class="search-btn" type="submit"><i class="ion-ios-search"></i></button>
+            </div>
+        </form>
+</div>

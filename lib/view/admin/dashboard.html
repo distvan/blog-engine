@@ -1,0 +1,84 @@
+<?php
+    use Distvan\Language;
+    $lang = Language::load('Admin');
+?>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1><a href="index.html">Blog Admin</a></h1>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-lg-12">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="navbar navbar-inverse" role="banner">
+                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $lang->get('my_account');?><b class="caret"></b></a>
+                                <ul class="dropdown-menu animated fadeInUp">
+                                    <li><a href="/admin/settings"><?php echo $lang->get('profile');?></a></li>
+                                    <li><a href="/admin/logout"><?php echo $lang->get('logout');?></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="/admin/dashboard"><i class="glyphicon glyphicon-home"></i> <?php echo $lang->get('dashboard');?></a></li>
+                    <li><a href="/admin/categories"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('categories');?></a></li>
+                    <li><a href="/admin/tags"><i class="glyphicon glyphicon-list"></i> <?php echo $lang->get('tags');?></a></li>
+                    <li><a href="/admin/articles"><i class="glyphicon glyphicon-pencil"></i> <?php echo $lang->get('articles');?></a></li>
+                    <!--
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i> Pages
+                            <span class="caret pull-right"></span>
+                        </a>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+        <?php
+              switch($content)
+              {
+                case 'category' : include 'content/category.html';break;
+                case 'tags' : include 'content/tags.html';break;
+                case 'articles' : include 'content/articles.html';break;
+                default: include 'content/dashboard.html';
+              }
+         ?>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="copy text-center">
+            <?php echo $lang->get('created_by');?>: <a target="_blank" href="https://www.dobrenteiistvan.hu">Istvan Dobrentei</a>
+        </div>
+    </div>
+</footer>
+<script src="/admin_/dist/js/admin-bundle.min.js"></script>
+</body>

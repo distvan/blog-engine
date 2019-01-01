@@ -1,0 +1,6 @@
+<!ELEMENT categories (category)*>
+        <!ELEMENT category (name , parent_id , url)>
+        <!ATTLIST category id CDATA #REQUIRED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT parent_id (#PCDATA)>
+        <!ELEMENT url (#PCDATA)>

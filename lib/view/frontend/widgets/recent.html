@@ -1,0 +1,24 @@
+<?php
+    use Distvan\Language;
+    $lang = Language::load('Widgets');
+?>
+
+<div class="sidebar-widget">
+    <div class="widget-header">
+        <h4>
+            <i class="ion-document"></i>
+            <?php echo $lang->get('recent_posts');?>
+        </h4>
+    </div>
+
+    <?php if($articles) : ?>
+        <ul class="sidebar-list">
+            <?php foreach($articles as $article) :?>
+                <li>
+                    <a href="<?php echo $article['url'];?>"><?php echo $article['title'];?></a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    <?php endif;?>
+
+</div>

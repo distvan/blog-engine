@@ -1,0 +1,7 @@
+.idea
+vendor
+log
+debugbar
+node_modules
+storage/settings.blog
+cache/*.cache

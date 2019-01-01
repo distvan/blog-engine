@@ -1,0 +1,8 @@
+<!ELEMENT articles (article)*>
+        <!ELEMENT article (title, category_id, url, creating_date, tags)>
+        <!ATTLIST article id CDATA #REQUIRED>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT category_id (#PCDATA)>
+        <!ELEMENT url (#PCDATA)>
+        <!ELEMENT creating_date (#PCDATA)>
+        <!ELEMENT tags (#PCDATA)>
