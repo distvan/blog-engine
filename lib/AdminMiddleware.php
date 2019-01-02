@@ -2,6 +2,7 @@
 
 namespace Distvan;
 
+use Slim\Router;
 use SlimSession\Helper;
 
 
@@ -14,9 +15,13 @@ use SlimSession\Helper;
  */
 class AdminMiddleware
 {
-    public function __construct(Helper $session)
+    protected $_session;
+    protected $_router;
+
+    public function __construct(Helper $session, Router $router)
     {
         $this->_session = $session;
+        $this->_router = $router;
     }
 
     /**
@@ -32,7 +37,9 @@ class AdminMiddleware
     {
         if(!$this->_session->get('loggedin'))
         {
-            return $response->withStatus(401);
+            $uri = $request->getUri()->withPath($this->_router->pathFor('main'));
+
+            return $response->withRedirect($uri, 301);
         }
 
         return $next($request, $response);

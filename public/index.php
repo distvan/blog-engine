@@ -77,27 +77,27 @@ $app->post('/admin/login', 'Distvan\Controller\Admin:login')
 
 $app->get('/admin/dashboard', 'Distvan\Controller\Admin:dashboard')
     ->setName('admin-dashboard')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/categories', 'Distvan\Controller\Admin:categories')
     ->setName('admin-categories')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/tags', 'Distvan\Controller\Admin:tags')
     ->setName('admin-tags')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/articles', 'Distvan\Controller\Admin:articles')
     ->setName('admin-articles')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/profile', 'Distvan\Controller\Admin:profile')
     ->setName('admin-profile')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/logout', 'Distvan\Controller\Admin:logout')
     ->setName('logout')
-    ->add(new AdminMiddleware($container->get('session')));
+    ->add(new AdminMiddleware($container->get('session'), $container->get('router')));
 
 $app->get('/admin/{key}', 'Distvan\Controller\Admin:index')
     ->setName('admin')
